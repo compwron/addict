@@ -76,7 +76,7 @@ GET /status
 
 ```
 
-Want more? [Just ask]().
+Want more? [Just ask](https://github.com/dthree/addict/wiki/Roadmap).
 
 ### Filters
 
