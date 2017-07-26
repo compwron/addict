@@ -1,0 +1,29 @@
+{
+  "name": "addict-api",
+  "version": "0.0.1",
+  "description": "Get a full Active Directory REST API in 30 seconds",
+  "main": "index.js",
+  "keywords": [
+    "active",
+    "directory",
+    "ldap",
+    "REST",
+    "api",
+    "ad",
+    "addict",
+    "microsoft",
+    "windows",
+    "authentication",
+    "json"
+  ],
+  "author": "dthree",
+  "license": "MIT",
+  "dependencies": {
+    "ad": "^0.2.3",
+    "express": "^4.15.3",
+    "body-parser": "^1.17.2",
+    "node-ssha256": "^0.1.1",
+    "swagpi": "^0.1.0",
+    "vorpal": "^1.12.0"
+  }
+}
