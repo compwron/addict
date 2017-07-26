@@ -11,6 +11,7 @@ Doing this:
 ```bash
 npm i addict-api -g 
 addict --url ldaps://[address] --user [user]@[domain] --pass [pass]
+```
 
 Gives you a web server with REST endpoints to add, remove, move, disable, enable, unlock or list Users, Groups and Organizational Units. It includes result caching by default and flexible filters for querying, sorting, pagination and column selection.
 
@@ -165,7 +166,7 @@ vim ./config.json
 
 This service defaults to no authentication. I can't and won't try to guess your flavor. 
 
-Addict uses `express`. The file `./middleware.js` at the root of the directory exposes the app so you can add middleware hoosk for auth logic.
+Addict uses `express`. The file `./middleware.js` at the root of the directory exposes the app so you can add middleware hooks for auth logic.
 
 #### LDAP vs LDAPS
 
