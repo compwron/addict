@@ -18,6 +18,10 @@
   ],
   "author": "dthree",
   "license": "MIT",
+  "bin": {
+    "addict": "./bin/index.js",
+    "addict-cli": "./bin/index.js"
+  },  
   "dependencies": {
     "ad": "^0.2.3",
     "express": "^4.15.3",
