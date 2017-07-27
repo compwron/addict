@@ -146,6 +146,8 @@ export ADDICT_USER=[user]@[domain]
 export ADDICT_PASS=[pass]
 ```
 
+You can [run it from docker as well](https://hub.docker.com/r/irasnyd/addictapi/), using environmental variables.
+
 Or in `./config.json`:
 
 
