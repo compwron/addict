@@ -25,7 +25,7 @@ const init = (args) => {
 	try {
 		const config = loadConfig(args);
 		const ad = new AD(config).cache(true);
-		app.listen(process.env.PORT || 3011);
+		app.listen(process.env.PORT || 3000);
 		routes(app, config, ad);
 		vorpal.use(commands, {ad});
 	} catch(err) {
