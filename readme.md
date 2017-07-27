@@ -23,6 +23,8 @@ There's interactive API docs at `/api`:
 
 These docs let you add arguments, try the requests and see the results.
 
+Lastly, it comes with [a companion Javascript library](https://github.com/dthree/ad).
+
 Made with <3 by [dthree](https://github.com/dthree).
 
 ## API
