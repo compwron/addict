@@ -9,7 +9,7 @@ Addict is a drop-in REST API microservice for Active Directory and LDAP implemen
 Doing this:
 
 ```bash
-npm i addict-api -g 
+npm i addict-api -g
 addict --url ldaps://[address] --user [user]@[domain] --pass [pass]
 ```
 
@@ -22,6 +22,8 @@ There's interactive API docs at `/api`:
 <p align="center"><em>No, it's not Slate.</em></p>
 
 These docs let you add arguments, try the requests and see the results.
+
+Lastly, it comes with [a companion Javascript library](https://github.com/dthree/ad).
 
 Made with <3 by [dthree](https://github.com/dthree).
 
@@ -43,7 +45,7 @@ PUT /user/:user/enable
 PUT /user/:user/disable
 PUT /user/:user/move
 PUT /user/:user/unlock
-DELET /user/:user
+DELETE /user/:user
 
 # Groups
 
@@ -72,7 +74,7 @@ GET /status
 
 # Monitoring
 
-GET /status 						
+GET /status
 
 ```
 
@@ -99,7 +101,7 @@ We've got operators as well:
 ##### Operators
 
  - `=`: Equals
- - `_ne=`: Not equals 
+ - `_ne=`: Not equals
  - `_lt=`: Less than
  - `_gt=`: Greater than
  - `_gte=`: Greater than or equal to
@@ -164,7 +166,7 @@ vim ./config.json
 
 #### Authentication
 
-This service defaults to no authentication. I can't and won't try to guess your flavor. 
+This service defaults to no authentication. I can't and won't try to guess your flavor.
 
 Addict uses `express`. The file `./middleware.js` at the root of the directory exposes the app so you can add middleware hooks for auth logic.
 
