@@ -1,6 +1,6 @@
 {
-  "name": "addict-api",
-  "version": "0.1.6",
+  "name": "addict",
+  "version": "1.0.1",
   "description": "Get a full Active Directory REST API in 30 seconds",
   "main": "index.js",
   "keywords": [
