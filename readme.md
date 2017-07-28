@@ -4,7 +4,7 @@
 
 ---
 
-Addict is a drop-in REST API microservice for Active Directory and LDAP implementations. Just like that.
+Addict is a drop-in REST API microservice for Active Directory implementations. Just like that.
 
 Doing this:
 
