@@ -26,7 +26,7 @@ const init = (args) => {
 	try {
 		const config = loadConfig(args);
 		const ad = new AD(config).cache(true);
-		app.listen(process.env.PORT || 3000);
+		app.listen(process.env.PORT || args.options.port || 3000);
 		routes(app, config, ad);
 		vorpal.use(commands, {ad});
 	} catch(err) {
@@ -40,6 +40,7 @@ vorpal.command('_start')
 	.option('-u, --user [user]', 'Domain admin username.')
 	.option('-p, --pass [pass]', 'Domain admin password.')
 	.option('--url [url]', 'URL for Active Directory.')
+	.option('--port [port]', 'Port to listen on.')
 	.action(function(args, cbk) {
 		init(args);
 		cbk();

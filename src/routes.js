@@ -22,6 +22,18 @@ function respond(res, err, data) {
 	res.send(out);
 }
 
+const parseBody = (body) => {
+	let out;
+	try {
+		if (typeof body === 'string') {
+			return JSON.parse(body);
+		}
+		return body;
+	} catch(e) {
+		return body;
+	}
+}
+
 module.exports = (app, config, ad) => {
 	app.get("/user", async (req, res) => {
 		const filter = api.parseQuery(req.query);
@@ -30,6 +42,7 @@ module.exports = (app, config, ad) => {
 	});
 
 	app.post("/user", async (req, res) => {
+		req.body = parseBody(req.body);
 		let [error, response] = await wrapAsync(ad.user().add(req.body));
 		respond(res, error, response);
 	});
@@ -55,6 +68,7 @@ module.exports = (app, config, ad) => {
 	});
 
 	app.post("/user/:user/authenticate", async (req, res) => {
+		req.body = parseBody(req.body);
 		const user = req.params.user;
 		const pass = req.body.pass || req.body.password;
 		let [error, response] = await wrapAsync(ad.user(user).authenticate(pass));
@@ -62,6 +76,7 @@ module.exports = (app, config, ad) => {
 	});
 
 	app.put("/user/:user/password", async (req, res) => {
+		req.body = parseBody(req.body);
 		const user = req.params.user;
 		const pass = req.body.pass || req.body.password;
 		let [error, response] = await wrapAsync(ad.user(user).password(pass));
@@ -71,6 +86,7 @@ module.exports = (app, config, ad) => {
 	});
 
 	app.put("/user/:user/password-never-expires", async (req, res) => {
+		req.body = parseBody(req.body);
 		const user = req.params.user;
 		let [error, response] = await wrapAsync(ad.user(user).passwordNeverExpires());
 		response = (!error) ? {success: true} : response;
@@ -79,6 +95,7 @@ module.exports = (app, config, ad) => {
 	});
 
 	app.put("/user/:user/password-expires", async (req, res) => {
+		req.body = parseBody(req.body);
 		const user = req.params.user;
 		let [error, data] = await wrapAsync(ad.user(user).passwordExpires());
 		let response = (!error) ? {success: true} : undefined;
@@ -86,6 +103,7 @@ module.exports = (app, config, ad) => {
 	});
 
 	app.put("/user/:user/enable", async (req, res) => {
+		req.body = parseBody(req.body);
 		const user = req.params.user;
 		let [error, data] = await wrapAsync(ad.user(user).enable());
 		let response = (!error) ? {success: true} : undefined;
@@ -93,6 +111,7 @@ module.exports = (app, config, ad) => {
 	});
 
 	app.put("/user/:user/disable", async (req, res) => {
+		req.body = parseBody(req.body);
 		const user = req.params.user;
 		let [error, data] = await wrapAsync(ad.user(user).disable());
 		let response = (!error) ? {success: true} : undefined;
@@ -100,6 +119,7 @@ module.exports = (app, config, ad) => {
 	});
 
 	app.put("/user/:user/move", async (req, res) => {
+		req.body = parseBody(req.body);
 		const user = req.params.user;
 		const location = req.body.location;
 		let [error, response] = await wrapAsync(ad.user(user).move(location));
@@ -107,6 +127,7 @@ module.exports = (app, config, ad) => {
 	});
 
 	app.put("/user/:user/unlock", async (req, res) => {
+		req.body = parseBody(req.body);
 		const user = req.params.user;
 		let [error, data] = await wrapAsync(ad.unlockUser(user));
 		let response = (!error) ? {success: true} : undefined;
