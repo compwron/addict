@@ -14,6 +14,7 @@ const chalk = vorpal.chalk;
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 middleware.call(app);
 
 swagpi(app, {
