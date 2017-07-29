@@ -4,7 +4,7 @@
 
 ---
 
-Addict is a drop-in REST API microservice for Active Directory and LDAP implementations. Just like that.
+Addict is a drop-in REST API microservice for Active Directory implementations. Just like that.
 
 Doing this:
 
@@ -145,6 +145,8 @@ export ADDICT_URL=ldaps://[address]
 export ADDICT_USER=[user]@[domain]
 export ADDICT_PASS=[pass]
 ```
+
+You can [run it from docker as well](https://hub.docker.com/r/irasnyd/addictapi/), using environmental variables.
 
 Or in `./config.json`:
 
