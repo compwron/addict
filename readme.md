@@ -135,8 +135,9 @@ Add `_start` and `_end` or `_limit`:
 You can pass the AD details at runtime:
 
 ```bash
-addict --url ldaps://[address] --user [user]@[domain] --pass [pass]
+addict --url ldaps://[address] --user [user]@[domain] --pass [pass] --port [port]
 ```
+`Port` is optional and defaults to `3000`.
 
 As environmental variables:
 
@@ -144,6 +145,7 @@ As environmental variables:
 export ADDICT_URL=ldaps://[address]
 export ADDICT_USER=[user]@[domain]
 export ADDICT_PASS=[pass]
+export ADDICT_PORT=[port] # optional
 ```
 
 You can [run it from docker as well](https://hub.docker.com/r/dthree/addict/), using environmental variables.
@@ -162,7 +164,8 @@ vim ./config.json
   ...
   "user": "[user]@[domain]",
   "pass": "[pass]",
-  "url": "ldaps://[address]"
+  "url": "ldaps://[address]",
+  "port": 3000
 }
 ```
 
