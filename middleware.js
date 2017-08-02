@@ -1,5 +1,3 @@
-module.exports = (app) => {
-
-	// insert auth middleware here
-
-}
+module.exports = app => {
+  // insert auth middleware here
+};
