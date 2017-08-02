@@ -9,7 +9,7 @@ Addict is a drop-in REST API microservice for Active Directory implementations. 
 Doing this:
 
 ```bash
-npm i addict-api -g
+npm i addict -g
 addict --url ldaps://[address] --user [user]@[domain] --pass [pass]
 ```
 
