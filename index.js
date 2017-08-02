@@ -26,9 +26,10 @@ const init = (args) => {
 	try {
 		const config = loadConfig(args);
 		const ad = new AD(config).cache(true);
-		app.listen(process.env.PORT || args.options.port || 3000);
+		app.listen(config.port || 3000);
 		routes(app, config, ad);
 		vorpal.use(commands, {ad});
+		vorpal.log(`Addict Active Directory API\nListening on port ${config.port || 3000}`);
 	} catch(err) {
 		vorpal.log(err.message);
 		process.exit();
@@ -47,5 +48,4 @@ vorpal.command('_start')
 	})
 
 vorpal.exec(`_start ${process.argv.slice(2).join(' ')}`);
-vorpal.log('\nAddict Active Directory API\n');
 vorpal.delimiter(chalk.cyan('Addict:')).show();
