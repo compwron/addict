@@ -35,6 +35,7 @@ Made with <3 by [dthree](https://github.com/dthree).
 GET /user
 POST /user
 GET /user/:user
+PUT /user/:user
 GET /user/:user/exists
 GET /user/:user/member-of/:group
 POST /user/:user/authenticate
