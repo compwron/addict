@@ -28,6 +28,16 @@ const parseBody = body => {
     if (typeof body === 'string') {
       return JSON.parse(body);
     }
+
+    let booleans = ['passwordExpires', 'enabled'];
+    for (const name in body) {
+      if (booleans.indexOf(name) > -1) {
+        body[name] = 
+          (body[name] === 'true') ? true : 
+          (body[name] === 'false') ? false : 
+          body[name];
+      }
+    }
     return body;
   } catch (e) {
     return body;
@@ -72,6 +82,15 @@ module.exports = (app, config, ad) => {
     const user = req.params.user;
     const pass = req.body.pass || req.body.password;
     let [error, response] = await wrapAsync(ad.user(user).authenticate(pass));
+    respond(res, error, response);
+  });
+
+  app.put('/user/:user', async (req, res) => {
+    req.body = parseBody(req.body);
+    const user = req.params.user;
+    let [error, response] = await wrapAsync(ad.user(user).update(req.body));
+    response = !error ? { success: true } : response;
+    error = error ? Object.assign({ success: false }, error) : error;
     respond(res, error, response);
   });
 

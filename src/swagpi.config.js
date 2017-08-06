@@ -59,6 +59,24 @@ module.exports = {
       queries: filterQuery
     },
     {
+      verb: 'PUT',
+      route: '/user/:user',
+      title: 'Update a user',
+      description: 'Updates properties of a user.',
+      params: { user: params.user },
+      queries: {
+        firstName: 'First name of user.',
+        lastName: 'Last name of user.',
+        commonName: 'Full name of user.',
+        email: 'Email address of user.',
+        title: 'Job title of user.',
+        password: 'Password of user.',
+        userName: 'Username of user.',
+        enabled: 'Whether the account is enabled.',
+        passwordExpires: 'Whether the password should expire.'
+      }
+    },
+    {
       verb: 'GET',
       route: '/user/:user/exists',
       title: 'User exists',

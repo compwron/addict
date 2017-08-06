@@ -23,9 +23,9 @@
     "addict-cli": "./bin/index.js"
   },
   "dependencies": {
-    "ad": "^0.2.3",
-    "express": "^4.15.3",
+    "ad": "^0.2.4",
     "body-parser": "^1.17.2",
+    "express": "^4.15.3",
     "node-ssha256": "^0.1.1",
     "swagpi": "^0.1.0",
     "vorpal": "^1.12.0"
