@@ -164,7 +164,7 @@ module.exports = {
     },
     {
       verb: 'PUT',
-      route: '/user/:user/unock',
+      route: '/user/:user/unlock',
       title: 'Unlock a user',
       description: 'Unlocks a user.',
       params: { user: params.user }
