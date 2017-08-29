@@ -218,7 +218,7 @@ module.exports = {
       verb: 'GET',
       route: '/group/:group/members',
       title: 'Get group members',
-      description: 'Returns list of group members.',
+      description: 'Returns array of group members.',
       params: { group: params.group }
     },
     {
