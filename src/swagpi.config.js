@@ -215,6 +215,13 @@ module.exports = {
       params: { group: params.group }
     },
     {
+      verb: 'GET',
+      route: '/group/:group/members',
+      title: 'Get group members',
+      description: 'Returns list of group members.',
+      params: { group: params.group }
+    },
+    {
       verb: 'POST',
       route: '/group/:group/user/:user',
       title: 'Add user to group',
