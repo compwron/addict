@@ -185,6 +185,12 @@ module.exports = (app, config, ad) => {
     respond(res, error, response);
   });
 
+  app.get('/group/:group/members', async (req, res) => {
+    const group = req.params.group;
+    let [error, response] = await wrapAsync(ad.group(group).members());
+    respond(res, error, response);
+  });
+
   app.post('/group/:group/user/:user', async (req, res) => {
     const group = req.params.group;
     const user = req.params.user;

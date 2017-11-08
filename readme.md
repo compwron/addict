@@ -54,6 +54,7 @@ GET /group
 POST /group
 GET /group/:group
 GET /group/:group/exists
+GET /group/:group/members
 POST /group/:group/user/:user
 DELETE /group/:group/user/:user
 DELETE /group/:group
