@@ -10,7 +10,7 @@ module.exports = args => {
   config.user = process.env.ADDICT_USER || config.user;
   config.pass = process.env.ADDICT_PASS || config.pass;
   config.url = process.env.ADDICT_URL || config.url;
-  config.port = process.env.PORT || config.port;
+  config.port = process.env.ADDICT_PORT || config.port;
 
   config.user = args.options.user || config.user;
   config.pass = args.options.pass || config.pass;
