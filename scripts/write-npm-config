@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -eo pipefail
+
+LOCATION=$PWD
+
+if [ ! -z "$1" ]; then
+  LOCATION=$1
+fi
+
+if [[ -z "${NPM_USERNAME}" || -z "${NPM_PASSWORD}" ]]; then
+  echo "Must export \$NPM_USERNAME and \$NPM_PASSWORD in the environment"
+  exit 1
+fi
+
+echo "registry = https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual" \
+  > $LOCATION/.npmrc
+
+curl --fail --silent --show-error --location \
+  --user "$NPM_USERNAME:$NPM_PASSWORD" \
+  https://mmrepo.jfrog.io/mmrepo/api/npm/auth \
+  >> $LOCATION/.npmrc

@@ -1,9 +1,7 @@
-FROM node:8-alpine
+FROM node:10.13-alpine
 
-ENV ADDICT_VERSION 1.0.4
+ENV ADDCIT_PORT ADDICT_PORT
 
-EXPOSE 3000
-ENTRYPOINT [ "/usr/local/bin/addict" ]
-
-RUN npm install "addict@$ADDICT_VERSION" -g \
-        && npm cache clear --force
+EXPOSE 8000
+ADD . .
+CMD npm start

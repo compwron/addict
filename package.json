@@ -23,7 +23,8 @@
     "addict-cli": "./bin/index.js"
   },
   "dependencies": {
-    "ad": "^0.32.1",
+    "acuris-express-internal-routes": "^1.0.0",
+    "ad": "^0.32.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "node-ssha256": "^0.1.1",
@@ -36,6 +37,7 @@
     "prettier": "^1.5.3"
   },
   "scripts": {
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "start": "node index.js -u ADDICT_USER -p ADDICT_PASS --url ADDICT_URL --baseDN ADDICT_BASE_DN --port ADDICT_PORT"
   }
 }
