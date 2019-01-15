@@ -6,7 +6,7 @@
   <properties>
     <org.datadog.jenkins.plugins.datadog.DatadogJobProperty plugin="datadog@0.5.6">
       <tagProperties>
-        team=%{team} pipeline=%{name}
+        team=architecture pipeline=internal-user-service
       </tagProperties>
       <emitOnCheckout>false</emitOnCheckout>
     </org.datadog.jenkins.plugins.datadog.DatadogJobProperty>
@@ -15,8 +15,8 @@
     </com.sonyericsson.jenkins.plugins.bfa.model.ScannerJobProperty>
     <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty/>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.27.0">
-      <projectUrl>https://github.com/mergermarket/%{name}/</projectUrl>
-      <displayName>%{name}@github</displayName>
+      <projectUrl>https://github.com/mergermarket/internal-user-service.git/</projectUrl>
+      <displayName>internal-user-service@github</displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
       <autoRebuild>false</autoRebuild>
@@ -35,7 +35,7 @@
       <configVersion>2</configVersion>
       <userRemoteConfigs>
         <hudson.plugins.git.UserRemoteConfig>
-          <url>https://github.com/mergermarket/%{name}</url>
+          <url>https://github.com/mergermarket/internal-user-service.git</url>
           <credentialsId>github-credentials</credentialsId>
         </hudson.plugins.git.UserRemoteConfig>
       </userRemoteConfigs>
