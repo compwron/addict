@@ -37,7 +37,7 @@ data "aws_secretsmanager_secret_version" "secrets" {
 }
  
 data "external" "secret_json" {
-      program = ["echo", "${data.aws_secretsmanager_secret_version.secrets.secret_string}"]
+      program = ["echo", "${data.aws_secretsmanager_secret_version.addict.secret_string}"]
 }
  
 locals {
