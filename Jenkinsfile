@@ -16,7 +16,7 @@ def awsCredentialsId = "aws-credentials"
 //test(slavePrefix)
 release(awsCredentialsId, githubCredentialsId, slavePrefix)
 deploy("aslive", slavePrefix, githubCredentialsId, awsCredentialsId)
-deploy("live", slavePrefix, githubCredentialsId, awsCredentialsId)
+//deploy("live", slavePrefix, githubCredentialsId, awsCredentialsId)
 
 // reusable code
 /*
