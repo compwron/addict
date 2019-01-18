@@ -27,13 +27,13 @@ resource "aws_iam_role_policy_attachment" "secrets_attach" {
  
 module "secrets_policy" {                                                      
     source = "github.com/mergermarket/tf_aws_secrets_access_policy"
-    component   = "${var.release["internal-user-service"]}"
+    component   = "${var.release["component"]}"
     environment = "${var.env}"
 }
 
 
 data "aws_secretsmanager_secret_version" "secrets" {
-  secret_id  = "${var.release["internal-user-service"]}/${var.env}/addict"
+  secret_id  = "${var.release["component"]}/${var.env}/addict"
 }
  
 data "external" "secret_json" {
