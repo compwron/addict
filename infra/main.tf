@@ -33,7 +33,7 @@ module "secrets_policy" {
 
 
 data "aws_secretsmanager_secret_version" "secrets" {
-  secret_id  = "${var.release["internal-service-user"]}/${var.env}/addict"
+  secret_id  = "${var.release["internal-user-service"]}/${var.env}/addict"
 }
  
 data "external" "secret_json" {
