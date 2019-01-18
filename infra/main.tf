@@ -31,15 +31,15 @@ module "secrets_policy" {
     environment = "aslive"
 }
 
-
 data "aws_secretsmanager_secret_version" "secrets" {
-  secret_id  = "${var.release["component"]}/${var.env}/addict"
+  secret_id  = "${var.release["component"]}/${var.env}/secrets"
 }
  
 data "external" "secret_json" {
-      program = ["echo", "${data.aws_secretsmanager_secret_version.addict.secret_string}"]
+      program = ["echo", "${data.aws_secretsmanager_secret_version.secrets.secret_string}"]
 }
  
 locals {
     secret_map = "${data.external.secret_json.result}"
 }
+ 
