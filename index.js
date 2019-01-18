@@ -9,13 +9,12 @@ const loadConfig = require('./src/loadConfig');
 const routes = require('./src/routes');
 const commands = require('./src/commands');
 const middleware = require('./middleware');
+
 const chalk = vorpal.chalk;
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-middleware.call(app);
-
 swagpi(app, {
   logo: './src/img/logo.png',
   config: swagpiConfig
@@ -44,6 +43,7 @@ vorpal
   .option('-p, --pass [pass]', 'Domain admin password.')
   .option('--url [url]', 'URL for Active Directory.')
   .option('--port [port]', 'Port to listen on.')
+  .option('--baseDN [baseDN]', 'base Domain Name to connect.')
   .action(function(args, cbk) {
     init(args);
     cbk();

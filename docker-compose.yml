@@ -1,0 +1,43 @@
+web:
+  build: .
+  environment:
+    - PORT=8000
+    - LOG_LEVEL=info
+    - NODE_ENV=dev
+    - LOG_LEVEL=debug
+    - ENV=local
+    - STATSD_ENABLED=true
+    - STATSD_HOST=datadog
+    - STATSD_PORT=8125
+  ports:
+    - "8000:8000"
+  links:
+    - datadog
+  volumes:
+  - ./server:/usr/src/app/server
+  - ./test:/usr/src/app/test
+  - ./package.json:/usr/src/app/package.json
+  command: npm run dev
+
+datadog:
+  image: datadog/docker-dd-agent
+  environment:
+     - API_KEY=133518e1bca20afe0eacd183449b386a
+     # stops the 'supervisor' agent running dogstatsd so that you can see output
+     # directly from the agent. It wont restart if it crashes though..
+     - DOGSTATSD_ONLY=true
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /proc/mounts:/host/proc/mounts:ro
+    - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+  expose:
+    - "8125/udp"
+
+acceptance_test:
+  build: acceptance-test
+  working_dir: /usr/src/acceptance-test
+  links:
+    - web
+  volumes:
+    - ./acceptance-test/test:/usr/src/acceptance-test/test
+  command: bash ./test/wait-and-run-acceptance-tests.sh -u http://web:8000

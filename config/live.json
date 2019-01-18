@@ -1,0 +1,7 @@
+{
+    "application_environment": {
+        "ENV": "aslive"
+    },
+    "target_group_arn": "%{aslive_target_group_arn}",
+    "desired_count": "2"
+}

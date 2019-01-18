@@ -1,0 +1,7 @@
+{
+    "application_environment": {
+        "ENV": "aslive"
+    },
+    "target_group_arn": "arn:aws:elasticloadbalancing:eu-west-1:733578946173:targetgroup/aslive-internal-user-service/5b2db49f904e05b5",
+    "desired_count": "2"
+}

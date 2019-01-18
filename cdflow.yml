@@ -1,0 +1,3 @@
+account-scheme-url: s3://mmg-account-resources/account-scheme.json
+type: docker
+team: optimusprime

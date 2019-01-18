@@ -32,10 +32,12 @@ const parseBody = body => {
     let booleans = ['passwordExpires', 'enabled'];
     for (const name in body) {
       if (booleans.indexOf(name) > -1) {
-        body[name] = 
-          (body[name] === 'true') ? true : 
-          (body[name] === 'false') ? false : 
-          body[name];
+        body[name] =
+          body[name] === 'true'
+            ? true
+            : body[name] === 'false'
+            ? false
+            : body[name];
       }
     }
     return body;
@@ -268,5 +270,16 @@ module.exports = (app, config, ad) => {
   app.get('/status', async (req, res) => {
     let uptime = new Date() - start;
     res.send({ online: true, uptime });
+  });
+
+  app.get('/simulate-error', (req, res) => {
+    throw new Error(
+      'this is a simulated error, someone hit /internal/simulate-error, nothing bad actually happened'
+    );
+  });
+  var internalRoutes = require('acuris-express-internal-routes');
+
+  internalRoutes.setInternalRoutes({
+    app: app // your existing Express app
   });
 };

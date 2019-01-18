@@ -1,0 +1,9 @@
+node_modules
+test
+.yarn-cache
+.git
+lint-staged.config.js
+.vscode
+jenkins-config
+config
+infra
