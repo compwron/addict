@@ -87,7 +87,7 @@ def checkoutPlatformConfig() {
         submoduleCfg: [],
         userRemoteConfigs: [[
             credentialsId: 'github-credentials',
-            url: "https://github.com/mergermarket/%{account_prefix}-platform-config"
+            url: "https://github.com/mergermarket/mmg-platform-config"
         ]]
     ])
 }
