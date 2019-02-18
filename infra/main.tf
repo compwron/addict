@@ -32,9 +32,7 @@ module "secrets_policy" {
 }
 
 data "aws_secretsmanager_secret_version" "secrets" {
-  secret_id  = "${var.release["component"]}/aslive/secrets"
-  aws_region = "eu-west-2"
-
+  secret_id  = "${var.release["internal-user-service"]}/aslive/secrets"
 }
  
 data "external" "secret_json" {
