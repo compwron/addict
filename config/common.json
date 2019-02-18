@@ -3,7 +3,7 @@
     "memory": 256,
     "port": 8000,
     "common_application_environment": {
-        
+        "AWS_REGION":"eu-west-2"
 
     }
 }
