@@ -18,7 +18,6 @@ module "ecs_service" {
   cpu                            = "${var.cpu}"
   memory                         = "${var.memory}"
   target_group_arn               = "${var.target_group_arn}"
-  aws_
 }
 # this is what needs to be added
 resource "aws_iam_role_policy_attachment" "secrets_attach" {
