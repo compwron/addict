@@ -32,7 +32,7 @@ module "secrets_policy" {
 }
 
 data "aws_secretsmanager_secret_version" "secrets" {
-  secret_id  = "${var.release["internal-user-service"]}/aslive/secrets"
+  secret_id  = "${var.release["component"]}/${var.env}/secrets"
 }
  
 data "external" "secret_json" {
