@@ -18,6 +18,7 @@ module "ecs_service" {
   cpu                            = "${var.cpu}"
   memory                         = "${var.memory}"
   target_group_arn               = "${var.target_group_arn}"
+  aws_
 }
 # this is what needs to be added
 resource "aws_iam_role_policy_attachment" "secrets_attach" {
@@ -33,7 +34,7 @@ module "secrets_policy" {
 
 data "aws_secretsmanager_secret_version" "secrets" {
   secret_id  = "${var.release["component"]}/aslive/secrets"
-  aws_region = "${var.common_application_environment.AWS_REGION}"
+  aws_region = "eu-west-2"
 
 }
  
