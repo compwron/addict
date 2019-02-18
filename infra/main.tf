@@ -28,11 +28,13 @@ resource "aws_iam_role_policy_attachment" "secrets_attach" {
 module "secrets_policy" {                                                      
     source = "github.com/mergermarket/tf_aws_secrets_access_policy"
     component   = "internal-user-service"
-    environment = "aslive"
+    environment = "${var.env}"
 }
 
 data "aws_secretsmanager_secret_version" "secrets" {
   secret_id  = "${var.release["component"]}/aslive/secrets"
+  aws_region = "${var.common_application_environment.AWS_REGION}"
+
 }
  
 data "external" "secret_json" {
