@@ -1,0 +1,16 @@
+{
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules"
+  ],
+  "verbose": true,
+  "execMap": {
+    "js": "node"
+  },
+  "events": {
+    "start": "./node_modules/.bin/mocha server/test/**; standard"
+  },
+  "legacyWatch": true,
+  "watch": [ "*" ],
+  "ext": "js json jsx"
+}

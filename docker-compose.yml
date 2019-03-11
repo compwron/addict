@@ -32,12 +32,3 @@ datadog:
     - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
   expose:
     - "8125/udp"
-
-acceptance_test:
-  build: acceptance-test
-  working_dir: /usr/src/acceptance-test
-  links:
-    - web
-  volumes:
-    - ./acceptance-test/test:/usr/src/acceptance-test/test
-  command: bash ./test/wait-and-run-acceptance-tests.sh -u http://web:8000

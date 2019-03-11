@@ -1,43 +1,52 @@
 {
-  "name": "addict",
-  "version": "1.1.1",
-  "description": "Get a full Active Directory REST API in 30 seconds",
-  "main": "index.js",
-  "keywords": [
-    "active",
-    "directory",
-    "ldap",
-    "REST",
-    "api",
-    "ad",
-    "addict",
-    "microsoft",
-    "windows",
-    "authentication",
-    "json"
-  ],
-  "author": "dthree",
-  "license": "MIT",
-  "bin": {
-    "addict": "./bin/index.js",
-    "addict-cli": "./bin/index.js"
+  "name": "internal-user-service",
+  "version": "1.0.0",
+  "description": "Service that returns internal user information",
+  "engines": {
+    "node": "10"
   },
+  "main": "server/src/index.js",
+  "scripts": {
+    "start": "node server/src/index.js",
+    "test": "npm run lint -s && npm run unit-test -s",
+    "dev": "nodemon ./server/src/index.js",
+    "watch": "nodemon -x 'npm test -s'",
+    "lint": "standard",
+    "acc-test": "./docker-run-acceptance-tests.sh",
+    "unit-test": "mocha server/test/**/**"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mergermarket/internal-user-service.git"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "acuris-express-internal-routes": "^1.0.0",
-    "ad": "^0.32.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "node-ssha256": "^0.1.1",
-    "swagpi": "^0.1.0",
-    "vorpal": "^1.12.0"
+    "connect-datadog": "0.0.6",
+    "console-logger": "^1.0.1",
+    "convict": "^4.0.0",
+    "morgan": "^1.7.0",
+    "node-statsd": "^0.1.1"
+  },
+  "standard": {
+    "globals": [
+      "it",
+      "describe",
+      "before",
+      "after",
+      "beforeEach",
+      "afterEach"
+    ]
   },
   "devDependencies": {
-    "husky": "^1.3.1",
-    "lint-staged": "^8.1.0",
-    "prettier": "^1.5.3"
-  },
-  "scripts": {
-    "precommit": "lint-staged",
-    "start": "node index.js -u ADDICT_USER -p ADDICT_PASS --url ADDICT_URL --baseDN ADDICT_BASE_DN --port ADDICT_PORT"
+    "mocha": "^3.5.0",
+    "must": "^0.13.4",
+    "nodemon": "^1.9.2",
+    "sinon": "^3.2.1",
+    "standard": "^10.0.3",
+    "supertest": "^3.0.0"
   }
 }
